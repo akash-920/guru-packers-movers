@@ -1,0 +1,37 @@
+{
+  "name": "guru-packers-movers",
+  "version": "1.0.0",
+  "description": "Production-ready logistics platform with premium UI/UX",
+  "private": true,
+  "workspaces": [
+    "mobile",
+    "backend",
+    "admin"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm install --workspace=mobile && npm install --workspace=backend && npm install --workspace=admin",
+    "dev": "npm run dev --workspaces",
+    "dev:mobile": "npm run dev --workspace=mobile",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:admin": "npm run dev --workspace=admin",
+    "build": "npm run build --workspaces",
+    "build:mobile": "npm run build --workspace=mobile",
+    "build:backend": "npm run build --workspace=backend",
+    "build:admin": "npm run build --workspace=admin",
+    "test": "npm run test --workspaces",
+    "test:coverage": "npm run test:coverage --workspaces",
+    "test:e2e": "npm run test:e2e --workspace=backend",
+    "lint": "npm run lint --workspaces",
+    "format": "npm run format --workspaces",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:rebuild": "docker-compose up -d --build",
+    "docker:clean": "docker-compose down -v",
+    "setup": "npm run install:all && cp .env.example .env"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
